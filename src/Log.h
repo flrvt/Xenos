@@ -76,7 +76,7 @@ public:
 private:
     Logger()
     {
-        _output.open( "Xenos.log", std::ios::out | std::ios::app );
+        _output.open( "FlorCode.log", std::ios::out | std::ios::app );
     }
 
     Logger( const Logger& ) = delete;

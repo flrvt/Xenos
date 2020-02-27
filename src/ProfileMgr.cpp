@@ -1,7 +1,7 @@
 #include "ProfileMgr.h"
 #include <BlackBone/src/BlackBone/Misc/Utils.h>
 
-#define CURRENT_PROFILE L"\\XenosCurrentProfile.xpr"
+#define CURRENT_PROFILE L"\\FlorCodeCurrentProfile.xpr"
 
 bool ProfileMgr::Save( const std::wstring& path /*= L""*/)
 {
@@ -13,24 +13,24 @@ bool ProfileMgr::Save( const std::wstring& path /*= L""*/)
         xml.create_document();
 
         for (auto& imgpath : _config.images)
-            xml.append( L"XenosConfig.imagePath" ).value( imgpath );
+            xml.append( L"FlorCodeConfig.imagePath" ).value( imgpath );
 
-        xml.set( L"XenosConfig.manualMapFlags", _config.mmapFlags );
-        xml.set( L"XenosConfig.procName",       _config.procName.c_str() );
-        xml.set( L"XenosConfig.hijack",         _config.hijack );
-        xml.set( L"XenosConfig.unlink",         _config.unlink );
-        xml.set( L"XenosConfig.erasePE",        _config.erasePE );
-        xml.set( L"XenosConfig.close",          _config.close );
-        xml.set( L"XenosConfig.krnHandle",      _config.krnHandle );
-        xml.set( L"XenosConfig.injIndef",       _config.injIndef );
-        xml.set( L"XenosConfig.processMode",    _config.processMode );
-        xml.set( L"XenosConfig.injectMode",     _config.injectMode );
-        xml.set( L"XenosConfig.delay",          _config.delay );
-        xml.set( L"XenosConfig.period",         _config.period );
-        xml.set( L"XenosConfig.skip",           _config.skipProc );
-        xml.set( L"XenosConfig.procCmdLine",    _config.procCmdLine.c_str() );
-        xml.set( L"XenosConfig.initRoutine",    _config.initRoutine.c_str() );
-        xml.set( L"XenosConfig.initArgs",       _config.initArgs.c_str() );
+        xml.set( L"FlorCodeConfig.manualMapFlags", _config.mmapFlags );
+        xml.set( L"FlorCodeConfig.procName",       _config.procName.c_str() );
+        xml.set( L"FlorCodeConfig.hijack",         _config.hijack );
+        xml.set( L"FlorCodeConfig.unlink",         _config.unlink );
+        xml.set( L"FlorCodeConfig.erasePE",        _config.erasePE );
+        xml.set( L"FlorCodeConfig.close",          _config.close );
+        xml.set( L"FlorCodeConfig.krnHandle",      _config.krnHandle );
+        xml.set( L"FlorCodeConfig.injIndef",       _config.injIndef );
+        xml.set( L"FlorCodeConfig.processMode",    _config.processMode );
+        xml.set( L"FlorCodeConfig.injectMode",     _config.injectMode );
+        xml.set( L"FlorCodeConfig.delay",          _config.delay );
+        xml.set( L"FlorCodeConfig.period",         _config.period );
+        xml.set( L"FlorCodeConfig.skip",           _config.skipProc );
+        xml.set( L"FlorCodeConfig.procCmdLine",    _config.procCmdLine.c_str() );
+        xml.set( L"FlorCodeConfig.initRoutine",    _config.initRoutine.c_str() );
+        xml.set( L"FlorCodeConfig.initArgs",       _config.initArgs.c_str() );
 
         xml.write_document( filepath );
         
@@ -54,29 +54,29 @@ bool ProfileMgr::Load( const std::wstring& path /*= L""*/ )
         xml.read_from_file( filepath );
 
         // Load images in a safe way
-        if(xml.has( L"XenosConfig.imagePath" ))
+        if(xml.has( L"FlorCodeConfig.imagePath" ))
         {
-            auto nodes = xml.all_nodes_named( L"XenosConfig.imagePath" );
+            auto nodes = xml.all_nodes_named( L"FlorCodeConfig.imagePath" );
             for (auto& node : nodes)
                 _config.images.emplace_back( node.value() );
         }
 
-        xml.get_if_present( L"XenosConfig.manualMapFlags",  _config.mmapFlags );
-        xml.get_if_present( L"XenosConfig.procName",        _config.procName );
-        xml.get_if_present( L"XenosConfig.hijack",          _config.hijack );
-        xml.get_if_present( L"XenosConfig.unlink",          _config.unlink );
-        xml.get_if_present( L"XenosConfig.erasePE",         _config.erasePE );
-        xml.get_if_present( L"XenosConfig.close",           _config.close );
-        xml.get_if_present( L"XenosConfig.krnHandle",       _config.krnHandle );
-        xml.get_if_present( L"XenosConfig.injIndef",        _config.injIndef );
-        xml.get_if_present( L"XenosConfig.processMode",     _config.processMode );
-        xml.get_if_present( L"XenosConfig.injectMode",      _config.injectMode );
-        xml.get_if_present( L"XenosConfig.delay",           _config.delay );
-        xml.get_if_present( L"XenosConfig.period",          _config.period );
-        xml.get_if_present( L"XenosConfig.skip",            _config.skipProc );
-        xml.get_if_present( L"XenosConfig.procCmdLine",     _config.procCmdLine );
-        xml.get_if_present( L"XenosConfig.initRoutine",     _config.initRoutine );
-        xml.get_if_present( L"XenosConfig.initArgs",        _config.initArgs );
+        xml.get_if_present( L"FlorCodeConfig.manualMapFlags",  _config.mmapFlags );
+        xml.get_if_present( L"FlorCodeConfig.procName",        _config.procName );
+        xml.get_if_present( L"FlorCodeConfig.hijack",          _config.hijack );
+        xml.get_if_present( L"FlorCodeConfig.unlink",          _config.unlink );
+        xml.get_if_present( L"FlorCodeConfig.erasePE",         _config.erasePE );
+        xml.get_if_present( L"FlorCodeConfig.close",           _config.close );
+        xml.get_if_present( L"FlorCodeConfig.krnHandle",       _config.krnHandle );
+        xml.get_if_present( L"FlorCodeConfig.injIndef",        _config.injIndef );
+        xml.get_if_present( L"FlorCodeConfig.processMode",     _config.processMode );
+        xml.get_if_present( L"FlorCodeConfig.injectMode",      _config.injectMode );
+        xml.get_if_present( L"FlorCodeConfig.delay",           _config.delay );
+        xml.get_if_present( L"FlorCodeConfig.period",          _config.period );
+        xml.get_if_present( L"FlorCodeConfig.skip",            _config.skipProc );
+        xml.get_if_present( L"FlorCodeConfig.procCmdLine",     _config.procCmdLine );
+        xml.get_if_present( L"FlorCodeConfig.initRoutine",     _config.initRoutine );
+        xml.get_if_present( L"FlorCodeConfig.initArgs",        _config.initArgs );
 
         return true;
     }
